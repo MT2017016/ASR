@@ -1,0 +1,44 @@
+Models:
+In the folder "models", 40 folders are made corresponding to each phoneme, each folder contains 20 models as per the requirment.
+These files are:-
+energy_2.pkl :- mfcc, mixtures=2, with energy coefficients
+energy_4.pkl :- mfcc, mixtures=4, with energy coefficients
+energy_8.pkl :- mfcc, mixtures=8, with energy coefficients
+energy_16.pkl :- mfcc, mixtures=16, with energy coefficients
+energy_32.pkl :- mfcc, mixtures=32, with energy coefficients
+energy_64.pkl :- mfcc, mixtures=64, with energy coefficients
+energy_128.pkl :- mfcc, mixtures=128, with energy coefficients
+energy_256.pkl :- mfcc, mixtures=256, with energy coefficients
+mfcc_2.pkl :- mfcc, mixtures=2, without energy coefficients
+mfcc_4.pkl :- mfcc, mixtures=4, without energy coefficients
+mfcc_8.pkl :- mfcc, mixtures=8, without energy coefficients
+mfcc_16.pkl :- mfcc, mixtures=16, without energy coefficients
+mfcc_32.pkl :- mfcc, mixtures=32, without energy coefficients
+mfcc_64.pkl :- mfcc, mixtures=64, without energy coefficients
+mfcc_128.pkl :- mfcc, mixtures=128, without energy coefficients
+mfcc_256.pkl :- mfcc, mixtures=256, without energy coefficients
+energy_delta.pkl :- mfcc_delta, mixtures=64, with energy coefficients
+delta.pkl :-mfcc_delta, mixtures=64, without energy coefficients
+energy_delta_delta.pkl:-mfcc_delta_delta, mixtures=64, with energy coefficients
+delta_delta.pkl:-mfcc_delta_delta, mixtures=64, without energy coefficients
+
+
+Accuracies:
+test.py on running prints all the frame_accuracies for every model i.e.
+mfcc (number of mixtures=[2,4,8,16,32,64,128,256], with energy coefficients),  
+mfcc (number of mixtures=[2,4,8,16,32,64,128,256], without energy coefficients)
+mfcc_delta(with energy coefficients)
+mfcc_delta(without energy coefficients)
+mfcc_delta_delta(with energy coeficcients)
+mfcc_delta_delta(without energy coefficients)
+
+The best accuracies we attained was with MFCC_DELTA_DELTA model WITH ENERGY COEFFICIENTS that is ~19.5% approx., which implies that for the given timit dataset, the energy coefficients play a significant role fro classification.
+
+Also some changes were made in import_timit.py to ease the flow of this project.
+All the PERs have been saved in a text file accuracies.txt, which contains PER for every file for every model, as well as frame accuracies for every model.
+
+Running the code
+
+python3 import_timit.py --preprocessed=False --ndelta=2
+python3 train.py
+python3 test.py
